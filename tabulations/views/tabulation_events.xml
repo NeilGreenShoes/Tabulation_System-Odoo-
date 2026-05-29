@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tabulation_events_calendar" model="ir.ui.view">
+        <field name="name">tabulation.events.calendar</field>
+        <field name="model">tabulation.events</field>
+            <field name="arch" type="xml">
+                <calendar date_stop="end_date"
+                            date_start="start_date"
+                            string="Tabulation Events"
+                            color="name"
+                            event_open_popup="true"
+                            quick_create="1"
+                            mode="year">
+                    <field name="name"/>
+                    <field name="max_points"/>
+                </calendar>
+            </field>
+    </record>
+
+    <record id="view_tabulation_events_form" model="ir.ui.view">
+        <field name="name">tabulation.events.form</field>
+        <field name="model">tabulation.events</field>
+        <field name="arch" type="xml">
+            <form string="Event">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Event Title"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="description" />
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="event_type_id" options="{'no_create': False, 'no_open': False}"/>
+                        <field name="max_points" />
+                    </group>
+                    <group>
+                        <field name="is_weighted"/>
+                        <field name="weight" invisible="not is_weighted"/>
+                    </group>
+                    <notebook>
+                        <page name="criteria_setting" string="Criteria">
+                            <field name="criteria_ids">
+                                <list editable="bottom">
+                                    <field name="name" string="Criterion Name"/>
+                                    <field name="points" string="Points"/>
+                                    <field name="is_weighted"/>
+                                    <field invisible="not is_weighted" widget="percentage" name="weighted" />
+                                </list>
+                            </field>
+                            <group name="note_group" col="6" class="mt-2 text-end">
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="criteria_total">
+                                    <field name="max_points" string="Total Points" />
+                                </group>
+                                <div class="clearfix"/>
+                            </group>
+                        </page>
+                        <page name="participants" string="Participants">
+                            <list editable="bottom">
+                                <field name="team_id" />
+                            </list>
+                        </page>
+                        <page name="judge_list" string="Judges">
+                            <field name="judge_id">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_participants_form" model="ir.ui.view">
+        <field name="name">tabulation.participants.form</field>
+        <field name="model">tabulation.participants</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="participant_name"/>
+                    <field name="team_id"/>
+                    <field name="is_whole_team"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_events" model="ir.actions.act_window">
+        <field name="name">Events</field>
+        <field name="res_model">tabulation.events</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="view_id" ref="view_tabulation_events_calendar"/>
+    </record>
+</odoo>

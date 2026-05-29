@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tabulation_session_stage_config" model="ir.ui.view">
+        <field name="name">tabulaton.session.stages</field>
+        <field name="model">tabulation.session.stage</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="active"/>
+            </list>
+        </field>
+
+    </record>
+
+    
+    <record id="action_config" model="ir.actions.act_window">
+        <field name="name">Config</field>
+        <field name="res_model">tabulation.session.stage</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_tabulation_session_stage_config"/>
+    </record>
+</odoo>

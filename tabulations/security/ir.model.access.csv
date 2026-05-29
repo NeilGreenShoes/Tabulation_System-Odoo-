@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tabulation_sessions,tabulation.sessions,model_tabulation_sessions,base.group_user,1,1,1,0
+access_tabulation_session_stage,tabulation.session.stage,model_tabulation_session_stage,base.group_user,1,1,1,0
+access_tabulation_events,tabulation.events,model_tabulation_events,base.group_user,1,1,1,0
+access_tabulation_event_type,tabulation.event.type,model_tabulation_event_type,base.group_user,1,1,1,0
+access_tabulation_criteria,tabulation.criteria,model_tabulation_criteria,base.group_user,1,1,1,0
+access_tabulation_teams,tabulation.teams,model_tabulation_teams,base.group_user,1,1,1,0
+access_tabulation_participants,tabulation.participants,model_tabulation_participants,base.group_user,1,1,1,0
+access_tabulation_scorecard,tabulation.scorecard,model_tabulation_scorecard,base.group_user,1,1,1,0
+access_tabulation_scorecard_participant,tabulation.scorecard.participant,model_tabulation_scorecard_participant,base.group_user,1,1,1,0
+access_tabulation_scorecard_entry,tabulation.score.entry,model_tabulation_score_entry,base.group_user,1,1,1,0
+access_tabulation_judges,tabulation.judges,model_tabulation_judges,base.group_user,1,1,1,0
+access_tabulation_dashboard,tabulation.dashboard,model_tabulation_dashboard,base.group_user,1,1,1,0
+access_tabulation_config,tabulation.config,model_tabulation_config,base.group_user,1,1,1,0
+access_tabulation_session_wizard,tabulation.session.wizard,model_tabulation_session_wizard,base.group_user,1,1,1,0

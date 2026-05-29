@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-name="tabulations.TabulationDashboard">
+
+        <div class="p-4">
+
+            <!-- EVENTS -->
+            <div class="card mb-4">
+
+                <div class="card-header">
+                    <h3>Events</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <t t-foreach="state.events"
+                       t-as="event"
+                       t-key="event.id">
+
+                        <div class="border rounded p-2 mb-2">
+
+                            <strong>
+                                <t t-esc="event.name"/>
+                            </strong>
+
+                            <div>
+                                Start:
+                                <t t-esc="event.start_date"/>
+                            </div>
+
+                            <div>
+                                End:
+                                <t t-esc="event.end_date"/>
+                            </div>
+
+                        </div>
+
+                    </t>
+
+                </div>
+
+            </div>
+
+            <!-- TEAMS -->
+            <div class="card mb-4">
+
+                <div class="card-header">
+                    <h3>Teams</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <t t-foreach="state.teams"
+                       t-as="team"
+                       t-key="team.id">
+
+                        <div class="border rounded p-2 mb-2">
+
+                            <strong>
+                                <t t-esc="team.team_name"/>
+                            </strong>
+
+                            <div>
+                                Score:
+                                <t t-esc="team.score"/>
+                            </div>
+
+                        </div>
+
+                    </t>
+
+                </div>
+
+            </div>
+
+            <!-- STANDINGS -->
+            <div class="card">
+
+                <div class="card-header">
+                    <h3>Standings</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-striped">
+
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Team</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <t t-foreach="state.standings"
+                               t-as="standing"
+                               t-key="standing.id">
+
+                                <tr>
+
+                                    <td>
+                                        <t t-esc="state.standings.indexOf(standing) + 1"/>
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="standing.team_name"/>
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="standing.score"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </t>
+
+</templates>

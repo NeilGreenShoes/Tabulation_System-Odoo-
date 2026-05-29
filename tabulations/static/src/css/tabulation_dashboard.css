@@ -1,0 +1,158 @@
+.session-card {
+    transition:all .2s ease;
+    cursor: pointer; 
+    height: 10rem; 
+    width: 20rem; 
+    margin-bottom: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 15px;
+    color: #000;
+}
+
+.session-card:hover{
+    transform: translateY(-.7rem);
+}
+
+.isActive {
+    background: linear-gradient(to bottom, #c5fca0 0%, #abe485 20%, #91cb6a 40%, #88ca5c 50%, #67a140 60%, #6db43e 80%, #61af2c 100%);
+    background-size: 100% 200%;
+    background-position: center top;
+    padding: 25px; 
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    color: white;
+    transition:all .2s ease,
+                background-position .5s ease;
+}
+
+.isActive:hover{
+    background-position: center bottom;
+    color: black;
+}
+
+.isEnded {
+    background: linear-gradient(to bottom, #ff4b4b 50%, #a32929 50%);
+    opacity: 0.5;
+    background-size: 100% 200%;
+    background-position: 100% 200%;
+    padding: 25px; 
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    color: white;
+    transition:all .2s ease,
+                background-position .5s ease;
+}   
+
+.isEnded:hover{
+    background-position: 0 100%;
+    color: black;
+}
+
+.isInnactive {
+    background: linear-gradient(to bottom, #F6FF8A 50%, #828b1b 50%);
+    opacity: 0.7;
+    background-size: 100% 200%;
+    background-position: 100% 200%;
+    padding: 25px; 
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    color: white;
+    transition:all .2s ease,
+                background-position .5s ease;
+}
+
+.isInnactive:hover{
+    background-position: 0 100%;
+    color: black;
+}
+
+.session-status {
+    background: #e0e0e0;
+    border-radius: .2rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    gap: 16px;
+    padding: 16px;
+    background-color: #f8f9fa;
+}
+
+.event-card {
+    flex: 1 1 calc(33.333% - 16px);
+    min-width: 280px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.event-card strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.event-score {
+    font-weight: 700;
+    color: #0d6efd;
+    background-color: #e7f1ff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.event-card div {
+    font-size: 0.875rem;
+    color: #475569;
+    margin-bottom: 4px;
+}
+
+.event-card hr {
+    margin: 8px 0;
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    opacity: 1;
+}
+
+.team-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    gap: 16px;
+    padding: 16px;
+    background-color: #f8f9fa;
+}
+
+.team-card {
+    flex: 1 1 calc(33.333% - 16px);
+    min-width: 280px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.team-card strong{
+    display: block;
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+}

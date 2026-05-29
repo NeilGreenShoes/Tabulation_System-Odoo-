@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sessions_tabulation" model="ir.ui.view">
+        <field name="name">tabulation.scorecard.form</field>
+        <field name="model">tabulation.scorecard</field>
+        <field name="arch" type="xml">
+            <form string="Scoring Sheet">
+                <sheet>
+                    <group>
+                        <field name="session_id"/>
+                        <field name="event_id" readonly="1" force_save="true"/>
+                        <field name="team_id" widget="many2many_tags" readonly="1"/>
+                    </group>
+                    <group>
+                        <div class="mt-2">
+                            <button name="action_generate_scorecards" 
+                                string="Generate Scorecards" 
+                                type="object" 
+                                class="oe_highlight" />
+                        </div>
+                    </group>
+                    <notebook>
+                        <page string="Scorecards">
+                            <field name="participant_line_ids">
+                                <list create="false" delete="false" edit="true">
+                                    <field name="team_id" readonly="1" force_save="true"/>
+                                    <button name="export_excel" 
+                                        string="Export Scorecard" 
+                                        type="object" 
+                                        class="btn btn-secondary" />
+                                    <field name="total_score"/>
+                                </list>
+
+                                <form string="Scorecard Entry">
+                                    <sheet>
+                                        <group>
+                                            <div>
+                                                <h1><field name="team_id" readonly="1"/></h1>
+                                            </div>
+                                        </group>
+                                        <field name="score_entry_ids">
+                                            <list edit="true" create="false" delete="false">
+                                                <field name="criteria_id" readonly="1"/>
+                                                <field name="criteria_points" readonly="1" />
+                                                <field name="score" force_save="true" store="1"/>
+                                                <field name="remarks" force_save="true" store="1"/>
+                                            </list>
+                                        </field>
+                                    </sheet>
+                                </form>
+
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+</odoo>

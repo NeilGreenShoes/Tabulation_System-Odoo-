@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_tabulation_root"
+                  name="Tabulation"
+                  sequence="10"
+                  action="action_dashboard_view"/>
+
+        <menuitem id="menu_tabulation_main"
+                  name="Dashboard"
+                  parent="menu_tabulation_root"
+                  action="action_dashboard_view"
+                  sequence="1"/>
+
+        <menuitem id="menu_tabulation_session"
+                  name="Sessions"
+                  parent="menu_tabulation_root"
+                  action="action_session"
+                  sequence="2"/>
+
+        <menuitem id="menu_tabulation_event"
+                  name="Events"
+                  parent="menu_tabulation_root"
+                  action="action_events"
+                  sequence="3"/>
+
+        <menuitem id="menu_tabulation_team"
+                  name="Teams"
+                  parent="menu_tabulation_root"
+                  action="action_teams"
+                  sequence="4"/>
+                  
+        <menuitem id="menu_tabulation_judges"
+                name="Judges"
+                parent="menu_tabulation_root"
+                action="action_judges"
+                sequence="5"/>
+
+        <menuitem id="menu_tabulation_config"
+                name="Config"
+                parent="menu_tabulation_root"
+                action="action_config"
+                sequence="6"/>
+    </data>
+</odoo>

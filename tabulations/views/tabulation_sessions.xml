@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_session_kanban" model="ir.ui.view">
+        <field name="name">Session.Kanban</field>
+        <field name="model">tabulation.sessions</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id" create="0">
+                <field name="stage_id"/>
+                <field name="event_id"/>
+                <field name="name" />
+                <field name="id"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click oe_kanban_card">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="text-muted">
+                                    <field name="event_id"/>
+                                    <div>
+                                        <i class="fa fa-calendar" title="Date"/> 
+                                        <field name="date" />
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <button name="action_open_calculator"
+                                        type="object"
+                                        class="btn btn-primary"
+                                        context="{'default_session_id': id}">
+                                        Open Tabulation
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-name="menu">
+                        <a role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="session_form_view" model="ir.ui.view">
+        <field name="name">Session.Kanban.form</field>
+        <field name="model">tabulation.sessions</field>
+        <field name="arch" type="xml">
+            <form string="Session">
+                <!-- <sheet> -->
+                    <group>
+                        <field name="stage_id"/>
+                        <field name="event_id"/>
+                        <field name="start_date" String="Start Date"/>
+                        <field name="end_date" String="End Date"/>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Participants" >
+                            <list editable="bottom">
+                                <field name="team_id"/>
+                            </list>
+                        </page>
+                    </notebook>
+                <!-- </sheet> -->
+            </form>
+        </field>
+    </record>
+
+    <record id="action_session" model="ir.actions.act_window">
+        <field name="name">Sessions</field>
+        <field name="res_model">tabulation.sessions</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="view_id" ref="view_session_kanban"/>
+    </record>
+</odoo>

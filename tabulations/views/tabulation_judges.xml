@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tabulation_judges_list" model="ir.ui.view">
+        <field name="name">Judges</field>
+        <field name="model">tabulation.judges</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tabulation_judges_form" model="ir.ui.view">
+        <field name="name">tabulation.judges.form</field>
+        <field name="model">tabulation.judges</field>
+        <field name="arch" type="xml">
+            <form string="Judge Name">
+                <sheet class="w-100 mw-100 px-4 m-0">
+                    <group>
+                        <div>
+                            <label for="name" string="Judge Name" class="form-label"/>
+                            <h1>
+                                <field name="name" placeholder="Judge Name..."/>
+                            </h1>
+                            <label for="description" string="Description" class="form-label"/>
+                            <h3>
+                                <field name="description" widget="textarea" rows="4" placeholder="Add Description..."/>
+                            </h3>
+                        </div>
+                    </group>
+                    <notebook>
+                        <page name="assigned_events" string="Assigned Events">
+                            <field name="event_id">
+                                <list editable="bottom" delete="false" create="false">
+                                    <field name="name"/>
+                                    <field name="start_date" widget="date"/>
+                                    <field name="end_date" widget="date"/>
+                                </list> 
+                            </field>    
+                        </page>
+                    </notebook> 
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_judges" model="ir.actions.act_window">
+        <field name="name">Judges</field>
+        <field name="res_model">tabulation.judges</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_tabulation_judges_list"/>
+    </record>
+</odoo>
